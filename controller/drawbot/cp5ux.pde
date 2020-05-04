@@ -113,6 +113,8 @@ void setupControls() {
                 if(connected){
                     port.stop();
                     portname = null;
+                    locked = true;
+                    unlock.show();
                 }
                 selectSerial();
             }
@@ -657,6 +659,20 @@ void setupControls() {
         .setText("PARK");
     park.addCallback(inputGeneric);
 
+    // MANUAL CONTROLS - Unlock
+    unlock = cP5.addBang("unlock")
+        .setPosition(25, 50)
+        .setSize(70, 50)
+        .setTriggerEvent(Bang.RELEASE)
+        .setColorForeground(white)
+        .setColorActive(blue);
+    unlock.getCaptionLabel()
+        .align(ControlP5.CENTER, ControlP5.CENTER)
+        .setColor(black)
+        .setFont(font14)
+        .setText("UNLOCK");
+    unlock.addCallback(inputGeneric);
+
 
 
     // MANUAL CONTROLS - User Command Entry
@@ -720,6 +736,13 @@ if ( theEvent.isController() ) {
             break;
         case "park":
             if(!streaming) park();
+            break;
+        case "unlock":
+            if(locked) {
+                send( unlock_grbl() );
+                locked = false;
+                unlock.hide();
+            }
             break;
         case "width":
         case "height":

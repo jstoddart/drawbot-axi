@@ -30,7 +30,7 @@ String fp = "";
 ControlP5 cP5;
 CallbackListener cb;
 Bang start, pause, load, setorigin, connect, penon, penoff, runpreview, regenpreview;
-Bang gohome, x1, x10, x100, x1n, x10n, x100n, y1, y10, y100, y1n, y10n, y100n, park;
+Bang gohome, x1, x10, x100, x1n, x10n, x100n, y1, y10, y100, y1n, y10n, y100n, park, unlock;
 Slider pen, startline;
 Bang step_b, step_f;
 Textfield setwidth, setheight, setpen, setspeed;
@@ -60,11 +60,11 @@ float sprayoff = 0.0;
 float sprayon = 28.0;
 float spraymax = 100.0;
 float pausepen = 0.28;
-boolean swapSpray = true;
+boolean swapSpray = false;
 
 // STATUS
 String status;
-Boolean streaming, spraying, paused, loaded, idle, previewing;
+Boolean streaming, spraying, paused, loaded, idle, previewing, locked;
 String versionPattern = "Grbl*";
 String startupPattern = ">*:ok";
 String statusPattern = "<*>";
@@ -216,6 +216,7 @@ void initVariables(){
     match = false;
     idle = false;
     previewing = false;
+    locked = true;
     //STREAM MODE
     c_line = new IntList();
     // SERIAL

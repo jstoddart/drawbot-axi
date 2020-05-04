@@ -70,3 +70,8 @@ Byte gReset(){
 Byte gResume(){
     return byte(0x7e);
 }
+
+// UNLOCK
+String unlock_grbl(){
+    return "$X";
+}
