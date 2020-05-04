@@ -1,5 +1,5 @@
 # draw-bot Controller Software
-_Designed & built by The Living, an Autodesk Studio. 2018._
+_Designed & built by Jim Stoddart for The Living, an Autodesk Studio. 2018._
 
 ![User Interface](DOCUMENTATION/UI_01.png)
 
@@ -99,5 +99,5 @@ See [GRBL 1.1 Wiki](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Commands) for mo
 - M5: Move servo to zero position
 - M3: Move servo to specified position (S)
 - S: Servo position, ranging from 0-1000
-- _Our servo model (Hitec HS-645MG) has a 180&deg; range of motion_
+- _Our servo model (MG90) has a 180&deg; range of motion_
 - Example: `M3S200` or `M5`
